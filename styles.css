@@ -1,0 +1,66 @@
+@import url("https://cdn.jsdelivr.net/gh/andreasphil/design-system@v0.25.0/dist/index.min.css")
+layer(theme);
+
+@layer theme {
+  :root {
+    --body-padding-x: 1rem;
+    --body-padding-y: 1rem;
+    --body-width: 100%;
+    --font-size: 14px;
+    --theme-tint: 215;
+    --theme-primary: 217 90% 60%;
+  }
+}
+
+.editors {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: calc(100vh - var(--body-padding-y) * 2);
+}
+
+.editor {
+  textarea {
+    flex: 1;
+    font-family: monospace;
+    resize: none;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &.xml {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  &.xslt {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+}
+
+.result {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .output-wrapper {
+    margin-top: 0.25rem;
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--c-border);
+    display: block;
+    flex: 1;
+    overflow: auto;
+    padding: 1rem;
+  }
+}
